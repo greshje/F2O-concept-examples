@@ -16,8 +16,10 @@ public class FhirToOmopSystemMapIntegrationTest {
 		ArrayList<String> keys = FhirToOmopSystemMap.getKeys();
 		log.info("Got " + keys.size() + " mappings.");
 		for(String key : keys) {
-			String value = FhirToOmopSystemMap.getValue(key);
-			log.info("\t" + StringUtils.rightPad(value, 15) + key);
+			String[] value = FhirToOmopSystemMap.getValue(key);
+			String code = StringUtils.rightPad(value[0], 15);
+			String name = StringUtils.rightPad(value[1], 15);
+			log.info("\t" + code + name  + key);
 		}
 		log.info("Got " + keys.size() + " mappings.");
 		log.info("Done.");

@@ -3,8 +3,8 @@ package org.nachc.f2o.examples.util.map.system;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Properties;
+import java.util.HashMap;
+import java.util.List;
 
 import com.nach.core.util.file.FileUtil;
 import com.opencsv.CSVReader;
@@ -17,25 +17,24 @@ public class FhirToOmopSystemMap {
 	
 	private static final File FILE = FileUtil.getFile("./map/omo-map.csv");
 
-	private static final Properties MAP;
+	private static final HashMap<String, String[]> MAP;
 	
 	static {
 		try (CSVReader csvReader = new CSVReader(new FileReader(FILE))) {
 			// skip the header row
 			csvReader.readNext();
-			// create the properties
-			Properties properties = new Properties();
+			// create the map
+			MAP = new HashMap<String, String[]>();
 			String[] nextLine;
 			while ((nextLine = csvReader.readNext()) != null) {
 				if (nextLine.length >= 7) {
 					String key = nextLine[2];
-					String value = nextLine[6];
+					String[] value = {nextLine[6], nextLine[0]};
 					if(key != null && key.trim().length() > 0) {
-						properties.setProperty(key, value);
+						MAP.put(key, value);
 					}
 				}
 			}
-			MAP = properties;
 		} catch (Exception exp) {
 			throw (new RuntimeException(exp));
 		}
@@ -46,23 +45,17 @@ public class FhirToOmopSystemMap {
 	//
 	
     public static ArrayList<String> getKeys() {
-        ArrayList<String> keysList = new ArrayList<>();
-        Enumeration<Object> keys = MAP.keys();
-        while (keys.hasMoreElements()) {
-            Object key = keys.nextElement();
-            keysList.add(key.toString());
-        }
-        return keysList;
+    	return new ArrayList<String>(MAP.keySet());
     }
     
     //
     // method to get a value
     //
     
-	public static String getValue(String key) {
-		String rtn = null;
+	public static String[] getValue(String key) {
+		String[] rtn = null;
 		try {
-			rtn = MAP.getProperty(key);
+			rtn = MAP.get(key);
 			return rtn;
 		} catch(Exception exp) {
 			return null;

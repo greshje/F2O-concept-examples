@@ -1,4 +1,4 @@
-package org.nachc.f2o.examples.util;
+package org.nachc.f2o.examples.util.props;
 
 import org.junit.Test;
 
@@ -14,5 +14,5 @@ public class F2OExamplesAppPropsIntegrationTest {
 		log.info("Got JdbcUrl: " + url);
 		log.info("Done.");
 	}
-	
+
 }

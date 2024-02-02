@@ -1,4 +1,4 @@
-package org.nachc.f2o.examples.util;
+package org.nachc.f2o.examples.util.props;
 
 import java.io.File;
 import java.util.Properties;
@@ -16,9 +16,9 @@ public class F2OExamplesAppProps {
 	//
 	// static variables
 	//
-	
+
 	private static final String SRC = "app.properties";
-	
+
 	private static File PARAMS_FILE;
 
 	private static Properties PROPS = null;
@@ -35,7 +35,7 @@ public class F2OExamplesAppProps {
 	//
 	// methods to get properties
 	//
-	
+
 	private static Properties getProps() {
 		return PROPS;
 	}
@@ -53,9 +53,9 @@ public class F2OExamplesAppProps {
 	//
 	// methods to get specific properties
 	//
-	
+
 	public static String getJdbcUrl() {
 		return get("JdbcUrl");
 	}
-	
+
 }

@@ -49,14 +49,32 @@ public class FhirToOmopSystemMap {
     }
     
     //
-    // method to get a value
+    // method to get a value and name
     //
     
-	public static String[] getValue(String key) {
+	public static String[] getCodeAndId(String key) {
 		String[] rtn = null;
 		try {
 			rtn = MAP.get(key);
 			return rtn;
+		} catch(Exception exp) {
+			return null;
+		}
+	}
+	
+    //
+    // method to get a value and name
+    //
+    
+	public static String getValue(String key) {
+		String[] rtn = null;
+		try {
+			rtn = MAP.get(key);
+			if(rtn != null) {
+				return rtn[1];
+			} else {
+				return null;
+			}
 		} catch(Exception exp) {
 			return null;
 		}

@@ -11,7 +11,7 @@ public class F2OExamplesAppPropsIntegrationTest {
 	public void shouldGetProperties() {
 		log.info("Starting test...");
 		String url = F2OExamplesAppProps.getJdbcUrl();
-		log.info("Got JdbcUrl: " + url);
+		log.info("Got JdbcUrl: \n" + url);
 		log.info("Done.");
 	}
 

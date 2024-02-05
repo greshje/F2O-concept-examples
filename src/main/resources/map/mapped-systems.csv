@@ -1,0 +1,16 @@
+vocabulary_id,vocabulary_code,system
+44819104,RxNorm,http://www.nlm.nih.gov/research/umls/rxnorm
+44819105,NDC,http://hl7.org/fhir/sid/ndc
+44819098,ICD10CM,http://hl7.org/fhir/sid/icd-10-cm
+44819109,Race,urn:oid:2.16.840.1.113883.6.238
+44819107,UCUM,http://unitsofmeasure.org
+5029,Cost Type,http://ohdsi.org/omop/CostType
+44819101,HCPCS,http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets
+44819153,Currency,urn:iso:std:iso:4217
+44819137,NUCC,http://nucc.org/provider-taxonomy
+44819100,CPT4,http://www.ama-assn.org/go/cpt
+581457,Cost,http://ohdsi.org/omop/Cost
+44819102,LOINC,http://loinc.org
+5046,ICD9CM,http://hl7.org/fhir/sid/icd-9-cm
+44819117,ATC,http://www.whocc.no/atc
+44819097,SNOMED,http://snomed.info/sct
